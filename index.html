@@ -10,34 +10,35 @@
 </head>
 <body>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand" href="#">Highscores</a>
+        <a class="navbar-brand">Highscores</a>
         <div id="timer">
-
+            
         </div>
     </nav>
 
     <div id="startscrn" class="d-flex flex-column align-items-center justify-content-center">
         <h1>Code Quiz</h1>
         <p>You have 60 seconds to complete the quiz. Each wrong answer will deduct 6 seconds.</p>
-        <button type="startbutton" class="btn btn-warning">START</button>
+        <button id="startbtn" type="button" class="btn btn-warning">START</button>
     </div>
 
-    <div id="questions" class="d-flex flex-column justify-content-center align-items-center invisible">
-        <h2>QUESTION TEXT</h2>
+    <div id="questionblock" class="d-flex flex-column justify-content-center align-items-center invisible">
+        <h2 id="questiontext"></h2>
         <div class="btn-group-vertical">
-            <button id="btn1" type="button" class="btn btn-secondary">choice #1</button>
-            <button id="btn2" type="button" class="btn btn-secondary">choice #2</button>
-            <button id="btn3" type="button" class="btn btn-secondary">choice #3</button>
-            <button id="btn4" type="button" class="btn btn-secondary">choice #4</button>
+            <button id="btn1" type="button" class="btn btn-secondary"></button>
+            <button id="btn2" type="button" class="btn btn-secondary"></button>
+            <button id="btn3" type="button" class="btn btn-secondary"></button>
+            <button id="btn4" type="button" class="btn btn-secondary"></button>
         </div>
 
     </div>
 
-    <div id="highscores" class="d-flex flex-column justify-content-center align-items-center invisible">
+    <div id="scorescrn" class="d-flex flex-column justify-content-center align-items-center invisible">
         <h3>High Scores</h3>
-        <ul id="scoreslist">
-
-        </ul>
+        <div id="scoreslist">
+            
+        </div>
+        <button id="startover" type="button" class="btn btn-warning">Start Over</button>
     </div>
 
 
