@@ -10,12 +10,18 @@ var scorescreen = $("#scorescrn")
 var scorelist = $("#scoreslist")
 var score = 0
 var startover = $("#startover")
-
+var scorebutton = $("#hsbtn")
 
 // timer function
 var timer = function() {
 
 }
+
+scorebutton.on('click', function() {
+    startscreen.addClass("invisible");
+    qblock.addClass("invisible");
+    scorescreen.removeClass("invisible");
+})
 
 
 // start button function
@@ -154,3 +160,13 @@ var highscore = function() {
     scorescreen.removeClass("invisible");
     $("<p>" + scorecard + "</p>").appendTo("#scoreslist");
 }
+   
+
+
+startover.on('click', function() {
+        scorescreen.addClass("invisible");
+        qblock.removeClass("invisible");
+        var score = 0;
+        console.log(score);
+        question1();
+    })
