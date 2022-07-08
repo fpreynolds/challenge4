@@ -11,10 +11,60 @@ var scorelist = $("#scoreslist")
 var score = 0
 var startover = $("#startover")
 var scorebutton = $("#hsbtn")
+var timertext = $("#timertext")
+
 
 // timer function
-var timer = function() {
+// var timer = function() {
+//     var secondsLeft = 60;
+//     // Sets interval in variable
+//     var timerInterval = setInterval(function() {
+//       secondsLeft--;
+//     //   timertext.text = secondsLeft;
+//       $("<p>" + secondsLeft + "</p>").appendTo("#timertext");
+  
+//       if(secondsLeft === 0) {
+//         // Stops execution of action at set interval
+//         clearInterval(timerInterval);
+//         // Calls function to create and append image
+//         highscore();
+//       }
+  
+//     }, 1000);
+//     console.log("here")
+//   }
 
+function countdown() {
+    var timeLeft = 60;
+  
+    // Use the `setInterval()` method to call a function to be executed every 1000 milliseconds
+    var timeInterval = setInterval(function () {
+      // As long as the `timeLeft` is greater than 1
+      if (timeLeft > 1) {
+        // Set the `textContent` of `timertext` to show the remaining seconds
+        timertext.textContent = timeLeft + " seconds left";
+        // Decrement `timeLeft` by 1
+        timeLeft--;
+      } else if (timeLeft === 1) {
+        // When `timeLeft` is equal to 1, rename to 'second' instead of 'seconds'
+        timertext.textContent = timeLeft + ' second remaining';
+        timeLeft--;
+      } else {
+        // Once `timeLeft` gets to 0, set `timerEl` to an empty string
+        timertext.textContent = '';
+        // Use `clearInterval()` to stop the timer
+        clearInterval(timeInterval);
+        // Call the `displayMessage()` function
+        displayMessage();
+      }
+    }, 1000);
+    console.log("here")
+  }
+
+
+
+var wrong = function() {
+    var timeLeft = timeLeft -= 6;
 }
 
 scorebutton.on('click', function() {
@@ -28,12 +78,12 @@ scorebutton.on('click', function() {
 startbutton.on('click', function() {
     startscreen.addClass("invisible");
     qblock.removeClass("invisible");
-    // run timer function
     question1();
 });
 
 // question 1
 var question1 = function() {
+    countdown();
     qtext.text('this is question 1, the answer is A');
     q1.text('A: answer 1');
     q2.text('B: answer 2');
@@ -43,6 +93,15 @@ var question1 = function() {
         score++;
         console.log(score);
         question2();
+    })
+    q2.on("click", function() {
+        wrong();
+    })
+    q3.on("click", function() {
+        wrong();
+    })
+    q4.on("click", function() {
+        wrong();
     })
 }
 var question2 = function() {
